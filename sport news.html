@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Sports News - Headlines & Scores</title>
+    
+    <style>
+        /* --- GLOBAL STYLES --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        .header {
+            background-color: #e30613; /* Classic Sports Red */
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+        .nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            transition: border-bottom 0.2s;
+        }
+        .nav a:hover {
+            border-bottom: 2px solid #ffcc00; /* Yellow hover effect */
+        }
+
+        /* --- MAIN CONTENT LAYOUT (CSS GRID) --- */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            /* Create a grid layout for the main news section */
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Featured Column (2) | Sidebar (1) */
+            gap: 30px;
+        }
+
+        .main-news {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns for cards */
+            gap: 20px;
+        }
+        
+        /* Set the first article to span both columns and be the "Featured" story */
+        .featured-article {
+            grid-column: 1 / -1; /* Spans from the first column line to the last */
+            margin-bottom: 20px;
+        }
+
+        /* --- ARTICLE CARD STYLES --- */
+        .article-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        .article-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .article-card-content {
+            padding: 15px;
+        }
+        .article-card-content h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            line-height: 1.2;
+        }
+        .article-card a {
+            text-decoration: none;
+            color: #333;
+        }
+        .article-card a:hover h3 {
+            color: #e30613;
+        }
+        .article-card p {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #00bcd4; /* Accent color for tags */
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* --- SIDEBAR STYLES --- */
+        .sidebar {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .sidebar h3 {
+            border-bottom: 2px solid #e30613;
+            padding-bottom: 8px;
+            margin-top: 0;
+            color: #e30613;
+        }
+        .score-item {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 1.1em;
+        }
+        .score-item:last-child {
+            border-bottom: none;
+        }
+        .team {
+            font-weight: bold;
+        }
+        .score {
+            float: right;
+            color: #e30613;
+            font-weight: bold;
+        }
+
+        /* --- RESPONSIVE DESIGN (For Mobile/Smaller Screens) --- */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr; /* Stack featured and sidebar */
+                margin: 20px 0;
+            }
+            .main-news {
+                grid-template-columns: 1fr; /* Articles stack vertically */
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>SPORTZ-HUB</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="#football">Football</a></li>
+                <li><a href="#basketball">Basketball</a></li>
+                <li><a href="#tennis">Tennis</a></li>
+                <li><a href="#motorsports">Motorsports</a></li>
+                <li><a href="#fixtures">Fixtures</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <main class="main-news">
+
+            <article class="article-card featured-article">
+                <a href="#">
+                    <img src="https://via.placeholder.com/1200x400?text=FOOTBALL+CHAMPIONS+FINAL" alt="Featured Match">
+                    <div class="article-card-content">
+                        <span class="tag">Breaking News</span>
+                        <h2>Unbelievable Comeback: Giants Secure Title in Extra Time Thriller!</h2>
+                        <p>The highly anticipated final lived up to the hype, delivering a dramatic finish as the Giants scored three goals in the last 15 minutes of the match...</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="article-card">
+                <a href="#">
+                    <img src="https://via.placeholder.com/600x400?text=BASKETBALL+STAR" alt="Basketball Player">
+                    <div class="article-card-content">
+                        <span class="tag">Basketball</span>
+                        <h3>MVP Candidate Sidelined with Ankle Injury; Return Date Unknown.</h3>
+                        <p>A huge blow for the Eagles as their star point guard is forced to miss the crucial playoff run...</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="article-card">
+                <a href="#">
+                    <img src="https://via.placeholder.com/600x400?text=TENNIS+SLAM" alt="Tennis Player">
+                    <div class="article-card-content">
+                        <span class="tag">Tennis</span>
+                        <h3>Veteran Challenger Stuns World No. 1 in Quarter-Final Upset.</h3>
+                        <p>The clay court specialist proved too much for the favorite in a grueling five-set match lasting over four hours.</p>
+                    </div>
+                </a>
+            </article>
+
+             <article class="article-card">
+                <a href="#">
+                    <img src="https://via.placeholder.com/600x400?text=MOTORSPORT+RACE" alt="Race Car">
+                    <div class="article-card-content">
+                        <span class="tag">Motorsports</span>
+                        <h3>New Engine Rules Shake Up Grid: Expect Tighter Championship Race.</h3>
+                        <p>Teams are scrambling to adapt to the new technical specifications ahead of the season's opening grand prix.</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="article-card">
+                <a href="#">
+                    <img src="https://via.placeholder.com/600x400?text=SOCCER+TRANSFER" alt="Player Signing">
+                    <div class="article-card-content">
+                        <span class="tag">Transfers</span>
+                        <h3>Record-Breaking Deal Finalized for Young Striker.</h3>
+                        <p>The 19-year-old talent completes his move to the European giants in a summer shocker.</p>
+                    </div>
+                </a>
+            </article>
+        </main>
+        
+        <aside class="sidebar">
+            <h3>LATEST RESULTS</h3>
+            
+            <div class="score-item">
+                <span class="team">Man City</span> 
+                <span class="score">3 - 2</span> 
+                <span class="team">Chelsea</span>
+            </div>
+            
+            <div class="score-item">
+                <span class="team">Lakers</span> 
+                <span class="score">112 - 98</span> 
+                <span class="team">Celtics</span>
+            </div>
+            
+            <div class="score-item">
+                <span class="team">Novak J.</span> 
+                <span class="score">3 - 1</span> 
+                <span class="team">Carlos A.</span>
+            </div>
+
+            <div class="score-item">
+                <span class="team">Red Bull</span> 
+                <span class="score">1st Place</span> 
+                <span class="team">Mercedes</span>
+            </div>
+
+            <div class="score-item">
+                <span class="team">Nigeria</span> 
+                <span class="score">1 - 0</span> 
+                <span class="team">Ghana</span>
+            </div>
+            
+            <a href="#" style="display: block; text-align: center; margin-top: 15px; color: #e30613; text-decoration: none;">View Full Scoreboard →</a>
+        </aside>
+
+    </div>
+
+</body>
+</html>
